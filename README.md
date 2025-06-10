@@ -14,3 +14,5 @@ mv ~/.pwsh.d/Microsoft.PowerShell_profile.ps1.copy_to_profile $profile
 The default `profile.pwsh.ps1` is in place, and will use the oh-my-posh prompt in `ocodo.pwsh.yaml`.
 
 Fork and do as you will.
+
+Made for pwsh v7

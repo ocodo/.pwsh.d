@@ -1,5 +1,7 @@
 $PROFILE_DIR = Split-Path -Parent $profile
-$env:Path = "$HOME\.local\bin;$env:Path"
+$env:Path = "$HOME/.local/bin;$env:Path"
+
+oh-my-posh init pwsh --config "$HOME/.pwsh.d/ocodo.pwsh.yaml" | Invoke-Expression
 
 Set-PSReadLineOption -EditMode Emacs
 
@@ -334,7 +336,7 @@ function Delete-ManualService {
     Write-Output "Service '$ServiceName' has been deleted."
 }
 
-Function yt-dlp-update {
+function yt-dlp-update {
     $execPath = DownloadTempFile -Url "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe"
     $targetPath = "${env:USERPROFILE}\Apps\yt-dlp.exe"
 	Remove-Item -Path $targetPath -Recurse -Force -ErrorAction SilentlyContinue
@@ -407,11 +409,6 @@ $scriptblock = {
     $Env:_TYPER_COMPLETE_ARGS = ""
     $Env:_TYPER_COMPLETE_WORD_TO_COMPLETE = ""
 }
+
 Register-ArgumentCompleter -Native -CommandName open-webui -ScriptBlock $scriptblock
 
-$sourceFile = "$HOME/.pwsh.d/ocodo.pwsh.yaml"
-$destinationFile = "$HOME/ocodo.pwsh.yaml"
-
-cp $sourceFile $destinationFile
-
-oh-my-posh init pwsh --config "ocodo.pwsh.yaml" | Invoke-Expression
