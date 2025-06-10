@@ -1,0 +1,7 @@
+# Load all scripts from ~/.pwsh.d/
+$scriptDir = Join-Path $HOME ".pwsh.d"
+if (Test-Path $scriptDir) {
+    Get-ChildItem -Path $scriptDir -Filter *.pwsh.ps1 | Sort-Object Name | ForEach-Object {
+        . $_.FullName
+    }
+}
