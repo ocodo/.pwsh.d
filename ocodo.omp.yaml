@@ -75,5 +75,14 @@ blocks:
           type: text
           style: plain
       newline: true
+    - type: prompt
+      alignment: left
+      segments:
+        - type: text
+          style: plain
+          template: " \n"
+          force: true
+          newline: true
+
 version: 3
-final_space: true
+final_space: false
