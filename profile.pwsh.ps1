@@ -18,7 +18,7 @@ function cd {
 }
 
 function l { (gci -fo).Name }
-function ll { gci -fo | ft -w Mode, LastWriteTime, Length, Name }
+function ll { gci -fo | ft -w Mode, LastWriteTime, Length, Name -HideTableHeaders }
 
 Function remove_force { rm -Force $args }
 Function msys($platform="ucrt64") { C:/msys64/msys2_shell.cmd -defterm -here -no-start "-${platform}" -shell zsh }
