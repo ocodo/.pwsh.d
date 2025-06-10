@@ -1,7 +1,7 @@
 $PROFILE_DIR = Split-Path -Parent $profile
 $env:Path = "$HOME/.local/bin;$env:Path"
 
-oh-my-posh init pwsh --config "$HOME/.pwsh.d/ocodo.pwsh.yaml" | Invoke-Expression
+oh-my-posh init pwsh --config "$HOME/.pwsh.d/ocodo.omp.yaml" | Invoke-Expression
 
 Set-PSReadLineOption -EditMode Emacs
 
@@ -390,6 +390,8 @@ Set-Alias -Name eh -Value edit_here
 Set-Alias -Name e -Value edit
 Set-Alias -Name econf -Value edit_config
 Set-Alias -Name cconf -Value print_config
+
+Install-Module git-aliases -Scope CurrentUser -AllowClobber
 
 Import-Module PSReadLine
 Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
