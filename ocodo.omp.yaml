@@ -8,7 +8,7 @@ blocks:
           foreground: '#0087af'
           type: text
           style: plain
-        - template: ' '
+        - template: ' '
           foreground: '#008899'
           type: text
           style: plain
