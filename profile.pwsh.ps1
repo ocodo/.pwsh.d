@@ -1,5 +1,5 @@
 $PROFILE_DIR = Split-Path -Parent $profile
-$env:Path = "C:\Users\jason\.local\bin;$env:Path"
+$env:Path = "$HOME\.local\bin;$env:Path"
 
 Set-PSReadLineOption -EditMode Emacs
 
