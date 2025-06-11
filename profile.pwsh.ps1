@@ -383,6 +383,10 @@ function gmm {
     git commit -m "$($args -join ' ')"
 }
 
+function gcq {
+    git commit --all --amend --verbose --no-edit
+}
+
 enable-msys-ucrt
 
 Set-Alias -Name rmf -Value remove_force
