@@ -380,7 +380,11 @@ Function extract-clip($video_path, $output_path, $start, $duration) {
 }
 
 function gmm {
-    git commit -m "$($args -join ' ')"
+    git commit --verbose -m "$($args -join ' ')"
+}
+
+function gmma {
+    git commit --all --verbose -m "$($args -join ' ')"
 }
 
 function gcq {
