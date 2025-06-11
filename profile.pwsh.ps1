@@ -391,6 +391,10 @@ function gcq {
     git commit --all --amend --verbose --no-edit
 }
 
+function grr {
+    git remote remove $args
+}
+
 enable-msys-ucrt
 
 Set-Alias -Name rmf -Value remove_force
