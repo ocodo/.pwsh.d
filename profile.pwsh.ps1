@@ -395,6 +395,10 @@ function grr {
     git remote remove $args
 }
 
+function gp {
+    git push
+}
+
 enable-msys-ucrt
 
 Set-Alias -Name rmf -Value remove_force
