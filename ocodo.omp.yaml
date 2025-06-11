@@ -9,7 +9,7 @@ blocks:
           type: text
           style: plain
         - template: ' '
-          foreground: '#008899'
+          foreground: '#00ffff'
           type: text
           style: plain
         - template: '{{ if .Root }}#{{ else }}{{ .UserName }}{{ end }}'
