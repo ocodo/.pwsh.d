@@ -17,6 +17,7 @@ function cd {
   }
 }
 
+function unix_ls { gci -fo @args | select Name | fw -AutoSize }
 function l { (gci -fo).Name }
 function ll { gci -fo | ft -w Mode, LastWriteTime, Length, Name -HideTableHeaders }
 
@@ -406,6 +407,7 @@ Set-Alias -Name eh -Value edit_here
 Set-Alias -Name e -Value edit
 Set-Alias -Name econf -Value edit_config
 Set-Alias -Name cconf -Value print_config
+Set-Alias -Name ls -Value unix_ls
 
 Install-Module git-aliases -Scope CurrentUser -AllowClobber
 
