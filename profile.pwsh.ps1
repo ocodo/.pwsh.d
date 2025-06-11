@@ -402,14 +402,14 @@ function gp {
 
 enable-msys-ucrt
 
+Install-Module git-aliases -Scope CurrentUser -AllowClobber
+
 Set-Alias -Name rmf -Value remove_force
 Set-Alias -Name eh -Value edit_here
 Set-Alias -Name e -Value edit
 Set-Alias -Name econf -Value edit_config
 Set-Alias -Name cconf -Value print_config
 Set-Alias -Name ls -Value unix_ls
-
-Install-Module git-aliases -Scope CurrentUser -AllowClobber
 
 Import-Module PSReadLine
 Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
