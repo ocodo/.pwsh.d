@@ -49,7 +49,7 @@ blocks:
             fetch_status: true
             fetch_upstream_icon: true
             branch_icon: ' '
-          template: '<#0087af>[</>{{ if .Ref }}<#ffffff> </>{{ end }} {{ if gt .Working.Untracked 0 }}<#c44044>●</>{{ end }}{{ if .Working.Changed }}<#c48044>●</>{{ end }}{{ if .Staging.Changed }}<#22c8F0>●</>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }} {{ end }}{{ if gt .StashCount 0 }}<#ffFFAA>󱧘  </>{{ end }}{{ if .HEAD }}<#ffffff>{{.Ref}}</>{{ end }}<#0087af>]</>'
+          template: '<#0087af>[</>{{ if .Ref }}<#ffffff> </>{{ end }} {{ if gt .Working.Untracked 0 }}<#c44044></>{{ end }}{{ if .Working.Changed }}<#c48044></>{{ end }}{{ if .Staging.Changed }}<#22c8F0></>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }} {{ end }}{{ if gt .StashCount 0 }}<#ffFFAA>󱧘  </>{{ end }}{{ if .HEAD }}<#ffffff>{{.Ref}}</>{{ end }}<#0087af>]</>'
           foreground: '#00E7DD'
           type: git
           style: plain
