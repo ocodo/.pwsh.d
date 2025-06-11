@@ -19,10 +19,7 @@ Made for pwsh v7
 
 # TODO
 
-- [ ] Git status has to be done as multiple segments
+- [ ] Git status amendments
   - [ ] merging
-  - [ ] untracked
-  - [ ] modified
-  - [ ] staged
   - [ ] ahead
   - [ ] behind
