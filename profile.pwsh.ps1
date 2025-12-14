@@ -2,11 +2,13 @@ $PROFILE_DIR = Split-Path -Parent $profile
 $env:Path = "$HOME/.local/bin;$env:Path"
 
 # Required dependencies
-$req = @('cargo','go','oh-my-posh','fnm','uvx','git')
-$missing = $req.Where({!(Get-Command $_ -EA 0)})
-if ($missing) {
-    $missing | % { Write-Warning "Missing: $_" }
-    exit 1  # Clean exit instead of throw
+$depsFile = "$HOME/.pwsh.d/deps.json"
+if (Test-Path $depsFile) {
+    $deps = Get-Content $depsFile | ConvertFrom-Json
+    if ($missing = $deps.Where({!(Get-Command $_ -EA 0)})) {
+        Write-Host "Missing: $($missing -join ', ')" -ForegroundColor Yellow
+        exit 1
+    }
 }
 
 if (Get-Command fnm -ErrorAction SilentlyContinue) {
