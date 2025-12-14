@@ -1,7 +1,32 @@
 $PROFILE_DIR = Split-Path -Parent $profile
 $env:Path = "$HOME/.local/bin;$env:Path"
 
-oh-my-posh init pwsh --config "$HOME/.pwsh.d/ocodo.omp.yaml" | Invoke-Expression
+// Required dependencies
+$req = @('cargo', 'go', 'oh-my-posh','fnm','uvx','git')
+$missing = $req.Where({!(Get-Command $_ -EA 0)})
+if ($missing) {
+    $missing | % { Write-Warning "Missing: $_" }
+    throw 'Install missing commands and restart'
+}
+
+if (Get-Command fnm -ErrorAction SilentlyContinue) {
+    try {
+        fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+    } catch {
+        Write-Host "Error initializing fnm"
+    }
+}
+
+try {
+    $start = Get-Date
+
+    oh-my-posh init pwsh --config "$HOME/.pwsh.d/ocodo.omp.yaml" | Invoke-Expression
+
+    $end = Get-Date
+    Write-Host "Oh-My-Posh initialized in $($end - $start).TotalSeconds seconds."
+} catch {
+    Write-Host "Error initializing oh-my-posh: $_"
+}
 
 Set-PSReadLineOption -EditMode Emacs
 
@@ -345,7 +370,7 @@ function yt-dlp-update {
 }
 
 Function yt-dlp-best {
-    yt-dlp `
+    uvx yt-dlp `
     --progress `
     --console-title `
     --video-multistreams `
@@ -364,7 +389,7 @@ Function yt-dlp-best {
 }
 
 Function yt-dlp-with-subs {
-    yt-dlp-best --write-auto-subs --sub-lang "en.*" $args
+    uvx yt-dlp-best --write-auto-subs --sub-lang "en.*" $args
 }
 
 Function ffmpeg-to-webm($input_file, $output_file, $crf = 30) {
@@ -431,4 +456,3 @@ $scriptblock = {
 }
 
 Register-ArgumentCompleter -Native -CommandName open-webui -ScriptBlock $scriptblock
-
