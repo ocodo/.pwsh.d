@@ -1,12 +1,12 @@
 $PROFILE_DIR = Split-Path -Parent $profile
 $env:Path = "$HOME/.local/bin;$env:Path"
 
-// Required dependencies
-$req = @('cargo', 'go', 'oh-my-posh','fnm','uvx','git')
+# Required dependencies
+$req = @('cargo','go','oh-my-posh','fnm','uvx','git')
 $missing = $req.Where({!(Get-Command $_ -EA 0)})
 if ($missing) {
     $missing | % { Write-Warning "Missing: $_" }
-    throw 'Install missing commands and restart'
+    exit 1  # Clean exit instead of throw
 }
 
 if (Get-Command fnm -ErrorAction SilentlyContinue) {
