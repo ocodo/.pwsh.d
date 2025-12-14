@@ -1,5 +1,11 @@
 # .pwsh.d
 
+## Latest update:
+
+`profile-dependencies.json` can be added to `~/.pwsh.d/` see the example file to ensure required dependencies are available in a pwsh terminal profile session.
+
+- - -
+
 A simple init.d style execution pattern for `$profile`
 
 clone this repo to `~/.pwsh.d` on windows and move `Microsoft.PowerShell_profile.ps1.copy_to_profile` to `$profile`.
